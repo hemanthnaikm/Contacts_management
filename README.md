@@ -1,6 +1,6 @@
 # Contacts Management
 
-## 1. Introduction
+## Introduction
 
 Managing personal and professional networks requires a fast, lightweight, and reliable tool. The **Contacts Management System** bridges the gap between classic desktop client wrappers and backend relational databases. Built natively using Java's robust `javax.swing` architecture and driven by Java Database Connectivity (JDBC), this standalone desktop utility executes all backend lifecycle logic programmatically.
 
@@ -8,10 +8,19 @@ Unlike conventional database applications that require manual infrastructure pro
 
 <img width="562" height="818" alt="image" src="https://github.com/user-attachments/assets/83360113-cec4-4f41-94bf-c87a115e881e" />
 
+## How to Setup
+
+Follow these steps to configure your local development environment and launch the desktop application:
+
+1. **Verify Prerequisites**: Ensure your local workstation has Java JDK 11 or higher installed. You will also need an IDE such as Eclipse and a local instance of the MySQL Server database engine.
+2. **Configure Database Credentials**: Open the `ContactsApp.java` file within your source code editor. Locate the authentication fields inside the database configuration block at the top of the class definition, and verify that the `DB_USER` and `DB_PASSWORD` string constants match your local MySQL configuration (the application default is set to user "root" with password "1122").
+3. **Link Driver Dependencies**: This database tool requires the official MySQL Connector/J runtime driver to map Java transactions onto relational SQL queries. Download the `mysql-connector-j-x.x.x.jar` bundle from Maven Central or an official repository and include it inside your IDE project's Build Path/Libraries reference list.
+4. **Compile and Build**: Trigger a project tree refresh or rebuild within Eclipse to force your environment to resolve all external dependencies, user interface imports, and core structural connections.
+5. **Execute the Application Bootstrap**: Run the `ContactsApp.java` class file as a standard Java application. During its boot cycle, the program automatically calls its core SQL generator scripts to safely create the target backend schema `ContactsDB` and map out structural tables without requiring manual execution of external SQL scripts.
+6. **Interact with the Contacts Registry**: Use the navigation header to flip between workspaces. You can test validations by inputting credentials in the "Add Contact" view, running sub-string checks inside the "Search Contact" filter, and toggling star bookmarks to populate the standalone "Favorites" registry view.
 
 
-
-## 2. Structural Architecture & Database Design
+## Structural Architecture & Database Design
 
 The application abstracts away backend configuration by embedding the logical design directly into the source compilation layer. On application startup, the connection architecture performs consecutive validation passes: first establishing a handshake with the root server, ensuring the target database is active, and building any missing structural properties before launching the GUI frame.
 
@@ -38,7 +47,7 @@ The internal data definitions enforce domain safety boundaries, data normalizati
 
 
 
-## 3. Workflow Mechanics (How It Works)
+## Workflow Mechanics (How It Works)
 
 The application functions via a unified, single-frame view system driven by a structured execution sequence:
 
@@ -56,7 +65,7 @@ The application functions via a unified, single-frame view system driven by a st
 <img width="552" height="827" alt="image" src="https://github.com/user-attachments/assets/fe84a3b8-fa2f-4e3a-927e-8dc791cf98c7" />
 
 
-## 4. Key Features
+## Key Features
 
 * **Self-Contained Automated Bootstrap Pipeline:** Eliminates manual database setup. The application completely auto-provisions its database environment on launch.
 * **Modern Minimalist Visual Language:** Built with flat, unbordered color block buttons, spacious borders, and crisp, anti-aliased Segoe UI typography against a dominant white background.
@@ -67,7 +76,7 @@ The application functions via a unified, single-frame view system driven by a st
 <img width="562" height="827" alt="image" src="https://github.com/user-attachments/assets/2245ee95-6967-40d5-9472-c66056f7b70d" />
 
 
-## 5. Advantages & Disadvantages
+##Advantages & Disadvantages
 
 ### Advantages
 
@@ -83,8 +92,7 @@ The application functions via a unified, single-frame view system driven by a st
 * **Single-Session UI Constraints:** The modal dialog mechanism locks focus to the pop-up window, preventing users from opening multiple details screens at once.
 
 
-
-## 6. Project Setup & Execution Guide
+## Project Setup & Execution Guide
 
 ### Prerequisites
 
@@ -114,7 +122,7 @@ private static final String DB_PASSWORD = "YOUR_LOCAL_MYSQL_PASSWORD";
 <img width="1597" height="810" alt="image" src="https://github.com/user-attachments/assets/18b797cf-44e9-4a2a-9300-ff0ba00088a7" />
 
 
-## 7. Conclusion
+## Conclusion
 
 The **Contacts Management System** combines clean Java Swing front-ends with solid MySQL backend mechanics. Automating table generation and error handling reduces configuration hassles, letting you focus on interacting with your data. This architecture provides a scalable foundation for adding advanced features down the road, such as remote hosting integrations, contact group tagging, or cloud backups.
 
